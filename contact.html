@@ -4,6 +4,45 @@
   <meta charset="UTF-8">
   <title>Contact</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+  <style>
+/* Message de confirmation */
+#success-message {
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Bouton moderne */
+#backButton {
+  margin-top: 15px;
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#backButton:hover {
+  background-color: #218838;
+}
+</style>
+
 </head>
 <body>
 <div id="alert-success" class="alert alert-success mt-3 d-none" role="alert">
@@ -33,7 +72,7 @@
   <div class="container mt-5">
     <h1 class="mb-4">Contactez-moi</h1>
     
-    <form id="contactForm">
+   <form id="contactForm">
   <label for="name">Nom :</label>
   <input type="text" id="name" name="name" required>
 
@@ -46,11 +85,11 @@
   <button type="submit">Envoyer</button>
 </form>
 
-<!-- Message de confirmation caché par défaut -->
-<div id="success-message" style="display:none; margin-top:20px; text-align:center; color:green;">
+<div id="success-message">
   <p>Merci!<br>Le formulaire a été envoyé avec succès.</p>
-  <button id="backButton" style="padding:10px 20px; font-size:16px; cursor:pointer;">Retourner au site originel</button>
+  <button id="backButton">Retourner au site originel</button>
 </div>
+
 
 
 
@@ -63,19 +102,15 @@
 <script>
 document.getElementById("contactForm").addEventListener("submit", function(event){
     event.preventDefault(); // empêche le rechargement de la page
-
-    // Affiche le message de confirmation
     document.getElementById("success-message").style.display = "block";
-
-    // Cache le formulaire après l'envoi
     document.getElementById("contactForm").style.display = "none";
 });
 
-// Redirige vers la page d'accueil quand on clique sur le bouton
 document.getElementById("backButton").addEventListener("click", function(){
-    window.location.href = "index.html"; // remplace "index.html" par l'URL de ton site si nécessaire
+    window.location.href = "index.html"; // mettre l'URL de ton site si nécessaire
 });
 </script>
+
 
 </body>
 </html>
