@@ -6,13 +6,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
 <div id="alert-success" class="alert alert-success mt-3 d-none" role="alert">
   ✅ Votre message a été envoyé avec succès !
 </div>
 <div id="alert-error" class="alert alert-danger mt-3 d-none" role="alert">
   ❌ Une erreur est survenue. Veuillez réessayer.
 </div>
+
 
 
   
@@ -33,7 +33,8 @@
   <div class="container mt-5">
     <h1 class="mb-4">Contactez-moi</h1>
     
-    <form action="https://formspree.io/f/xnnzowqr" method="POST">
+    <form id="contact-form" action="https://formspree.io/f/xnnzowqr" method="POST">
+
   <div class="mb-3">
     <label for="nom" class="form-label">Nom</label>
     <input type="text" name="nom" class="form-control" id="nom" required>
@@ -57,5 +58,40 @@
   <footer class="bg-dark text-white text-center py-3 mt-5">
     &copy; 2025 MonSite. Tous droits réservés.
   </footer>
+
+
+
+  <script>
+const form = document.getElementById('contact-form');
+const alertSuccess = document.getElementById('alert-success');
+const alertError = document.getElementById('alert-error');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault(); // Empêche le rechargement
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      alertSuccess.classList.remove('d-none');
+      alertError.classList.add('d-none');
+      form.reset();
+    } else {
+      alertError.classList.remove('d-none');
+      alertSuccess.classList.add('d-none');
+    }
+  } catch (error) {
+    alertError.classList.remove('d-none');
+    alertSuccess.classList.add('d-none');
+  }
+});
+</script>
+
 </body>
 </html>
