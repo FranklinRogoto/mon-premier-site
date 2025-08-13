@@ -33,27 +33,26 @@
   <div class="container mt-5">
     <h1 class="mb-4">Contactez-moi</h1>
     
-    <form id="contact-form" action="https://formspree.io/f/xnnzowqr" method="POST">
+    <form id="contactForm">
+  <label for="name">Nom :</label>
+  <input type="text" id="name" name="name" required>
 
-  <div class="mb-3">
-    <label for="nom" class="form-label">Nom</label>
-    <input type="text" name="nom" class="form-control" id="nom" required>
-  </div>
+  <label for="email">Email :</label>
+  <input type="email" id="email" name="email" required>
 
-  <div class="mb-3">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" name="email" class="form-control" id="email" required>
-  </div>
+  <label for="message">Message :</label>
+  <textarea id="message" name="message" required></textarea>
 
-  <div class="mb-3">
-    <label for="message" class="form-label">Message</label>
-    <textarea name="message" class="form-control" id="message" rows="4" required></textarea>
-  </div>
-
-  <button type="submit" class="btn btn-primary">Envoyer</button>
+  <button type="submit">Envoyer</button>
 </form>
 
-  </div>
+<!-- Message de confirmation caché par défaut -->
+<div id="success-message" style="display:none; margin-top:20px; text-align:center; color:green;">
+  <p>Merci!<br>Le formulaire a été envoyé avec succès.</p>
+  <button id="backButton" style="padding:10px 20px; font-size:16px; cursor:pointer;">Retourner au site originel</button>
+</div>
+
+
 
   <footer class="bg-dark text-white text-center py-3 mt-5">
     &copy; 2025 MonSite. Tous droits réservés.
@@ -61,35 +60,20 @@
 
 
 
-  <script>
-const form = document.getElementById('contact-form');
-const alertSuccess = document.getElementById('alert-success');
-const alertError = document.getElementById('alert-error');
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event){
+    event.preventDefault(); // empêche le rechargement de la page
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault(); // Empêche le rechargement
+    // Affiche le message de confirmation
+    document.getElementById("success-message").style.display = "block";
 
-  const formData = new FormData(form);
+    // Cache le formulaire après l'envoi
+    document.getElementById("contactForm").style.display = "none";
+});
 
-  try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      alertSuccess.classList.remove('d-none');
-      alertError.classList.add('d-none');
-      form.reset();
-    } else {
-      alertError.classList.remove('d-none');
-      alertSuccess.classList.add('d-none');
-    }
-  } catch (error) {
-    alertError.classList.remove('d-none');
-    alertSuccess.classList.add('d-none');
-  }
+// Redirige vers la page d'accueil quand on clique sur le bouton
+document.getElementById("backButton").addEventListener("click", function(){
+    window.location.href = "index.html"; // remplace "index.html" par l'URL de ton site si nécessaire
 });
 </script>
 
