@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            padding-top: 50px;
-        }
-        .contact-card {
-            max-width: 600px;
-            margin: auto;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background-color: #ffffff;
-        }
-        #success-message {
-            display: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Animé</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+    body {
+        background-color: #f0f2f5;
+        padding-top: 50px;
+        font-family: 'Segoe UI', sans-serif;
+    }
+    .contact-card {
+        max-width: 600px;
+        margin: auto;
+        padding: 40px 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        background-color: #ffffff;
+        transition: transform 0.3s ease;
+    }
+    .contact-card:hover {
+        transform: translateY(-5px);
+    }
+    .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 10px rgba(13, 110, 253, 0.3);
+        transition: all 0.3s ease-in-out;
+    }
+    .input-group-text {
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+    }
+    #success-message {
+        display: none;
+    }
+    #backButton {
+        transition: all 0.3s ease;
+    }
+    #backButton:hover {
+        background-color: #0b5ed7;
+        transform: scale(1.05);
+    }
+</style>
 </head>
 <body>
 
@@ -33,24 +57,36 @@
     <div id="success-message" class="alert alert-success text-center">
         <h4>Merci !</h4>
         <p>Le formulaire a été envoyé avec succès.</p>
-        <button id="backButton" class="btn btn-primary">Retour au site</button>
+        <button id="backButton" class="btn btn-primary mt-2">Retour au site</button>
     </div>
 
-    <!-- Formulaire de contact -->
+    <!-- Formulaire avec icônes -->
     <form id="contactForm">
         <div class="mb-3">
             <label for="name" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="name" placeholder="Votre nom" required>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                <input type="text" class="form-control" id="name" placeholder="Votre nom" required>
+            </div>
         </div>
+
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Votre email" required>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                <input type="email" class="form-control" id="email" placeholder="Votre email" required>
+            </div>
         </div>
+
         <div class="mb-3">
             <label for="message" class="form-label">Message</label>
-            <textarea class="form-control" id="message" rows="5" placeholder="Votre message" required></textarea>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-chat-left-text-fill"></i></span>
+                <textarea class="form-control" id="message" rows="5" placeholder="Votre message" required></textarea>
+            </div>
         </div>
-        <button type="submit" class="btn btn-success w-100">Envoyer</button>
+
+        <button type="submit" class="btn btn-success w-100">Envoyer <i class="bi bi-send-fill"></i></button>
     </form>
 </div>
 
@@ -60,14 +96,14 @@
 <script>
     // Gestion de l'envoi du formulaire
     document.getElementById("contactForm").addEventListener("submit", function(event){
-        event.preventDefault(); // Empêche le rechargement de la page
-        document.getElementById("success-message").style.display = "block"; // Affiche le message
-        document.getElementById("contactForm").style.display = "none"; // Cache le formulaire
+        event.preventDefault();
+        document.getElementById("success-message").style.display = "block";
+        document.getElementById("contactForm").style.display = "none";
     });
 
     // Bouton retour
     document.getElementById("backButton").addEventListener("click", function(){
-        window.location.href = "index.html"; // Remplace par l'URL de ton site
+        window.location.href = "index.html";
     });
 </script>
 
