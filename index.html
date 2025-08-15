@@ -13,6 +13,22 @@
   
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Hover effect pour les images des projets */
+    .card-img-top:hover img {
+      transform: scale(1.1);
+    }
+    .card-body .btn:hover {
+      transform: translateY(-3px);
+    }
+    .card-img-top img {
+      transition: transform 0.3s;
+    }
+    .card-body .btn {
+      transition: transform 0.2s;
+    }
+  </style>
 </head>
 <body>
 
@@ -77,7 +93,7 @@
   </div>
 </section>
 
-<!-- ===== Section Projets ===== -->
+<!-- ===== Section Projets Améliorée ===== -->
 <section id="projects" class="py-5">
   <div class="container">
     <h2 class="text-center text-primary mb-5">Mes Projets</h2>
@@ -85,36 +101,42 @@
       
       <!-- Projet 1 -->
       <div class="col-md-4">
-        <div class="card h-100 shadow-sm animate__animated animate__fadeInUp">
-          <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Projet 1">
-          <div class="card-body">
+        <div class="card h-100 shadow-sm border-0 overflow-hidden animate__animated animate__fadeInUp">
+          <div class="card-img-top overflow-hidden">
+            <img src="https://via.placeholder.com/350x200" class="img-fluid" alt="Projet 1">
+          </div>
+          <div class="card-body text-center">
             <h5 class="card-title">Projet 1</h5>
             <p class="card-text">Description courte du projet 1, technologies utilisées et objectif.</p>
-            <a href="#" class="btn btn-primary">Voir plus</a>
+            <a href="#" class="btn btn-primary btn-sm px-4">Voir plus</a>
           </div>
         </div>
       </div>
 
       <!-- Projet 2 -->
       <div class="col-md-4">
-        <div class="card h-100 shadow-sm animate__animated animate__fadeInUp animate__delay-1s">
-          <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Projet 2">
-          <div class="card-body">
+        <div class="card h-100 shadow-sm border-0 overflow-hidden animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="card-img-top overflow-hidden">
+            <img src="https://via.placeholder.com/350x200" class="img-fluid" alt="Projet 2">
+          </div>
+          <div class="card-body text-center">
             <h5 class="card-title">Projet 2</h5>
             <p class="card-text">Description courte du projet 2, technologies utilisées et objectif.</p>
-            <a href="#" class="btn btn-primary">Voir plus</a>
+            <a href="#" class="btn btn-primary btn-sm px-4">Voir plus</a>
           </div>
         </div>
       </div>
 
       <!-- Projet 3 -->
       <div class="col-md-4">
-        <div class="card h-100 shadow-sm animate__animated animate__fadeInUp animate__delay-2s">
-          <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Projet 3">
-          <div class="card-body">
+        <div class="card h-100 shadow-sm border-0 overflow-hidden animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="card-img-top overflow-hidden">
+            <img src="https://via.placeholder.com/350x200" class="img-fluid" alt="Projet 3">
+          </div>
+          <div class="card-body text-center">
             <h5 class="card-title">Projet 3</h5>
             <p class="card-text">Description courte du projet 3, technologies utilisées et objectif.</p>
-            <a href="#" class="btn btn-primary">Voir plus</a>
+            <a href="#" class="btn btn-primary btn-sm px-4">Voir plus</a>
           </div>
         </div>
       </div>
